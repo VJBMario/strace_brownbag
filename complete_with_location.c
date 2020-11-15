@@ -7,13 +7,17 @@
 //#define READ_MULTIPLE_TIMES
 #define READ_ONCE
 
-char postal_codes_mem[325413][9];
-char local_mem [325413][40];
+#define NR_POSTALCODES 325413
+
+#if defined (READ_ONCE) && !defined(READ_MULTIPLE_TIMES)
+char postal_codes_mem[NR_POSTALCODES][9];
+char local_mem [NR_POSTALCODES][40];
+#endif
 
 int main(void) {
 	    FILE *fp_postal_codes;
 	    FILE *fp_people=fopen("random_people_postal_code.txt", "r"); 
-	    FILE *fp_output_final=fopen("output_final.txt", "w"); 
+	    FILE *fp_output_final=fopen("output_final_2.txt", "w"); 
 	    char *field, *field_line;
 	    char buf[128], line[1024], name_postalcode[128];
 	    char postal_code_line[16];
@@ -21,7 +25,7 @@ int main(void) {
 	    char localidade[40];
 
 
-	    int postalcode_found=0, count_postal_codes=0, count_people=0;
+	    int postalcode_found=0, count_postal_codes, count_people=0;
 
 	    //There are 325413 postal codes and the number of postal codes are in the worst case XXXX-XXX 8 chars
 	    int i=0;
@@ -55,6 +59,7 @@ int main(void) {
 		//Find the Postal Code
 #if defined (READ_MULTIPLE_TIMES) && !defined (READ_ONCE)		
 		fp_postal_codes = fopen("codigos_postais.csv", "r");
+		count_postal_codes=0;
 
 		if (!fp_postal_codes) {
 			printf("Can't open file\n");
@@ -77,7 +82,7 @@ int main(void) {
 	        	        field_line = strtok(NULL, ",");
 	        	        strcat(postal_code_line,"-");
 				//printf ("%s%s\n", postal_code_line, field_line);
-				//printf ("Postal Code to find: %s\n", postal_code_person);
+
 				strcat(postal_code_line,field_line); //O problema estava aqui por causa da 1ª linha que tem mais que 16 chars e corrompia a string seguinte.
 			        strcat(postal_code_line,"\0");
 							
@@ -100,8 +105,16 @@ int main(void) {
 		//read the postal codes file just once in the first time the postal code is needed
 		if (count_people == 1) {
 			fp_postal_codes = fopen("codigos_postais.csv", "r"); 		
+			count_postal_codes=0;
+			
+			if (!fp_postal_codes) {
+				printf("Can't open file\n");
+				return 1;
+	    		}
+			
 			while (fgets(line, 1024, fp_postal_codes)) {
 				if (count_postal_codes != 0) {
+					//printf ("%s", line);
 					//The village name is in 4th field
 					field_line = strtok(line,",");
 					for (i=0; i<3; i++) {
@@ -119,6 +132,8 @@ int main(void) {
 					
 					strcat(postal_code_line,field_line); //O problema estava aqui por causa da 1ª linha que tem mais que 16 chars e corrompia a string seguinte.
 				        strcat(postal_code_line,"\0");
+					//printf ("Postal Code Line: %s", postal_code_line);
+					//printf ("Postal Code Person: %s\n", postal_code_person);
 					strcpy (postal_codes_mem[count_postal_codes], postal_code_line);				
 				}
 				count_postal_codes++;
@@ -126,10 +141,16 @@ int main(void) {
 			fclose(fp_postal_codes);
 		}
 
-		for (int test = 0; test < 325413; test++)
-			printf ("%s - %s\n", postal_codes_mem[test],local_mem[test]);
+		for (i = 0; i < NR_POSTALCODES && postalcode_found==0; i++) {
+			if (strcmp(postal_codes_mem[i], postal_code_person)==0){
+				//printf("FOUND %s!\n", postal_code_person);
+				postalcode_found = 1;	
+				fprintf(fp_output_final, "%s|%s\n",name_postalcode, local_mem[i]);
+				//printf("%s|%s\n",name_postalcode, local_mem[i]);
+			}		
+		}
+		//printf ("%s - %s\n", postal_codes_mem[test],local_mem[test]);
 
-	       return 0;
 #else
 	       printf ("You must define the mode:\n READ_ONCE - Read the Postal Code file just once and save it in memory.\n READ_MULTIPLE_TIMES - Open and read the Postal Code file for each person\n");
 	       return 0;

@@ -8449,7 +8449,6 @@ Valter|3865-143
 Amandio|3770-410
 Amandio|3780-351
 Mário|4755-083
-Xeila| -3700
 João|3740-065
 Josefa|3730-629
 Josefa|3730-156
@@ -9027,7 +9026,6 @@ Nuria|3830-024
 Sofia|4720-452
 Maria|4755-497
 Maria|3810-932
-Sofia| -3700
 Xeila|4540-222
 Toino|3860-321
 Amandio|7630-614
@@ -13885,7 +13883,6 @@ Nuria|4775-099
 Maria|4750-083
 Toino|4550-759
 Sofia|3850-440
-André| -3700
 Armando|3880-158
 Amandio|3850-417
 Maria|7780-208
@@ -16062,7 +16059,6 @@ Maria|4750-594
 Armando|7960-133
 Xeila|7600-136
 André|3720-902
-Mário| -3700
 Petra|4550-736
 André|3810-173
 Toino|4720-755
@@ -18045,7 +18041,6 @@ Armando|3050-401
 Sofia|3885-457
 Petra|4505-157
 Alfredo|4535-162
-Toino| -3700
 Sofia|7750-715
 André|3750-588
 Alfredo|4750-086
@@ -21550,7 +21545,6 @@ Sofia|4525-146
 Toino|4500-631
 Nuria|3865-216
 Valter|7830-231
-Mário| -3700
 Petra|4750-631
 Valter|3720-584
 Josefa|7920-201
@@ -30837,7 +30831,6 @@ Sofia|3830-793
 André|3800-901
 Valter|3700-511
 João|3720-033
-Sofia| -3700
 Amandio|4550-101
 Mário|7700-321
 Alfredo|4755-195
@@ -32308,7 +32301,6 @@ Toino|3750-314
 André|3700-103
 Armando|7900-199
 Amandio|4755-013
-Alfredo| -3700
 Josefa|3860-520
 Xeila|3880-910
 Josefa|3700-090
@@ -32531,7 +32523,6 @@ Sofia|4540-710
 Armando|4505-479
 André|3865-040
 Amandio|3830-080
-Alfredo| -3700
 Alfredo|4525-416
 Sofia|4750-552
 Armando|4740-691
@@ -35614,7 +35605,6 @@ Amandio|4500-708
 Toino|3800-340
 Petra|3780-183
 Maria|3870-405
-Josefa| -3700
 Armando|3810-885
 Toino|4755-307
 Maria|4500-496
@@ -46294,7 +46284,6 @@ Amandio|3730-274
 Josefa|4720-352
 Alfredo|4755-088
 Toino|4775-170
-Paulo| -3700
 Nuria|7700-067
 Mário|3720-704
 Paulo|4500-443
@@ -46361,7 +46350,6 @@ Nuria|7800-416
 André|7940-452
 Sofia|4505-311
 Sofia|7830-411
-André| -3700
 Mário|7900-671
 Toino|4520-155
 Xeila|4505-503
@@ -47748,7 +47736,6 @@ Petra|4525-358
 Alfredo|4905-032
 Valter|3700-664
 Armando|4500-737
-Toino| -3700
 Amandio|3800-284
 Josefa|3720-733
 Amandio|3810-700
@@ -49998,3 +49985,16 @@ Armando|3700-826
 Mário|3730-419
 Alfredo|4550-081
 Sofia|3800-801
+Mário|3720-066
+Nuria|3800-850
+Paulo|3770-059
+Nuria|7630-791
+Nuria|4755-438
+André|4540-730
+Petra|4525-111
+Toino|3780-290
+Toino|3750-102
+João|7630-590
+Alfredo|3700-175
+Alfredo|3750-744
+Valter|3880-190
