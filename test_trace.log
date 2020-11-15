@@ -1,0 +1,17 @@
+read(0, "\34\0\0\0\0\0\0\0\200\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 128) = 128
+ioctl(5, TIOCGWINSZ, {ws_row=52, ws_col=211, ws_xpixel=0, ws_ypixel=0}) = 0
+write(1, "\7\0\0\0\f\0\0\0004\0\323\0", 12) = 12
+poll([{fd=4, events=POLLIN}, {fd=0, events=POLLIN}], 2, -1) = 1 ([{fd=0, revents=POLLIN}])
+read(0, "\34\0\0\0\0\0\0\0\200\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 128) = 128
+ioctl(5, TIOCGWINSZ, {ws_row=50, ws_col=211, ws_xpixel=0, ws_ypixel=0}) = 0
+write(1, "\7\0\0\0\f\0\0\0002\0\323\0", 12) = 12
+poll([{fd=4, events=POLLIN}, {fd=0, events=POLLIN}], 2, -1) = 1 ([{fd=4, revents=POLLIN}])
+read(4, "\6\0\0\0\f\0\0\0\0\0\0\0", 32) = 12
+write(4, "\6\0\0\0\f\0\0\0\0\0\0\0", 12) = -1 EPIPE (Broken pipe)
+close(1)                                = 0
+close(3)                                = 0
+close(4)                                = 0
+ioctl(5, SNDCTL_TMR_START or TCSETS, {B38400 opost isig icanon echo ...}) = 0
+close(5)                                = 0
+exit_group(0)                           = ?
++++ exited with 0 +++
