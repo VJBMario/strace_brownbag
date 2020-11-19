@@ -17,7 +17,7 @@ char local_mem [NR_POSTALCODES][40];
 int main(void) {
 	    FILE *fp_postal_codes;
 	    FILE *fp_people=fopen("random_people_postal_code.txt", "r"); 
-	    FILE *fp_output_final=fopen("output_final_2.txt", "w"); 
+	    FILE *fp_output_final=fopen("output_2.txt", "w"); 
 	    char *field, *field_line;
 	    char buf[128], line[1024], name_postalcode[128];
 	    char postal_code_line[16];
@@ -58,7 +58,7 @@ int main(void) {
 	                
 		//Find the Postal Code
 #if defined (READ_MULTIPLE_TIMES) && !defined (READ_ONCE)		
-		fp_postal_codes = fopen("codigos_postais.csv", "r");
+		fp_postal_codes = fopen("postal_codes.csv", "r");
 		count_postal_codes=0;
 
 		if (!fp_postal_codes) {
@@ -104,7 +104,7 @@ int main(void) {
 			
 		//read the postal codes file just once in the first time the postal code is needed
 		if (count_people == 1) {
-			fp_postal_codes = fopen("codigos_postais.csv", "r"); 		
+			fp_postal_codes = fopen("postal_codes.csv", "r"); 		
 			count_postal_codes=0;
 			
 			if (!fp_postal_codes) {
