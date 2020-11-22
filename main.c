@@ -7,6 +7,9 @@
 //#define READ_MULTIPLE_TIMES
 #define READ_ONCE
 
+// When Challenge is defined it will create a verbose output log which will impact the application performance
+#define CHALLENGE
+
 #define NR_POSTALCODES 325413
 
 #if defined (READ_ONCE) && !defined(READ_MULTIPLE_TIMES)
@@ -23,6 +26,10 @@ int main(void) {
 	    char postal_code_line[16];
 	    char postal_code_person[16];
 	    char localidade[40];
+
+	    #ifdef CHALLENGE
+            FILE *fp_verbose_log;
+	    #endif
 
 
 	    int postalcode_found=0, count_postal_codes, count_people=0;
@@ -147,6 +154,13 @@ int main(void) {
 				postalcode_found = 1;	
 				fprintf(fp_output_final, "%s|%s\n",name_postalcode, local_mem[i]);
 				//printf("%s|%s\n",name_postalcode, local_mem[i]);
+				
+				#ifdef CHALLENGE
+				fp_verbose_log=fopen(".verbose_output.txt", "w");
+				fprintf(fp_verbose_log, "Postal Code for %s FOUND\n",name_postalcode);
+				fclose(fp_verbose_log);
+				#endif
+								
 			}		
 		}
 		//printf ("%s - %s\n", postal_codes_mem[test],local_mem[test]);
